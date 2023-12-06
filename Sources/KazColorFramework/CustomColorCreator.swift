@@ -120,13 +120,13 @@ public final class CustomColorCreator {
         }
         
         let fileURL = documentsDirectory.appendingPathComponent(fileName)
-        guard FileManager.default.fileExists(atPath: fileURL.path) else {
+        guard FileManager.default.fileExists(atPath: fileURL.path),
+              let data = try? Data(contentsOf: fileURL),
+              let colorSettings = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String: CGFloat] else {
             throw NSError(domain: "FileNotFoundError", code: 2, userInfo: nil)
         }
         
-        guard let data = try? Data(contentsOf: fileURL),
-              let colorSettings = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: CGFloat],
-              let hue = colorSettings["hue"],
+        guard let hue = colorSettings["hue"],
               let saturation = colorSettings["saturation"],
               let brightness = colorSettings["brightness"],
               let alpha = colorSettings["alpha"] else {
