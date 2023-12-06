@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "KazColorFramework"
-  spec.version      = "0.0.4"
+  spec.version      = "0.0.5"
   spec.summary      = "A comprehensive framework for color manipulation and conversion in Swift."
 
   # This description is used to generate tags and improve search results.
@@ -45,7 +45,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.license      = "MIT"
-  spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.swift_version = '5.0'
 
 
